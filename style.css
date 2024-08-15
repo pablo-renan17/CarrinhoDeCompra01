@@ -8,6 +8,7 @@
 
 :root{
     --color-black: #1b1b1b;
+    --color-grey: #888888;
 }
 
 header{
@@ -49,12 +50,20 @@ main{
     height: 65vh;
     width: 45vh;
     background-color: blanchedalmond;
+    overflow: auto;
 }
 
 .carrinho{
     height: 65vh;
     width: 45vh;
     background-color: rgb(244, 146, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.carrinho-body{
+    overflow: auto;
 }
 
 .compra-header{
@@ -64,11 +73,51 @@ main{
     border-bottom: 2px solid var(--color-black);
 }
 
+.compra-ul{
+    padding: 12px;
+}
+
 .carrinho-header{
     text-align: center;
     padding: 16px;
     font-weight: bold;
     border-bottom: 2px solid var(--color-black);
+}
+
+.carrinho-body{
+    height: 100%;
+}
+
+.carrinho-footer{
+    text-align: center;
+    padding: 16px;
+    font-weight: bold;
+    border-top: 2px solid var(--color-black);
+}
+
+.li-compra{
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.btn-acao{
+    border: 2px solid var(--color-black);
+    border-radius: 4px;
+    height: 4vh;
+    width: 22vh;
+    font-size: 2vh;
+}
+
+.btn-acao:hover{
+    background-color: var(--color-grey);
+    transition: 0.2s;
+}
+
+.btn-acao:active{
+    background-color: var(--color-black);
+    transform: scale(98%);
+    transition: 0.1s;
 }
 
 @media(max-width: 750px){
