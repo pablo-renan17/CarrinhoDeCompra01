@@ -15,20 +15,19 @@ function montarListaDeItens() {
                             </div>
                             <div>
                                 <p>${item.nome}</p>
-                                <p>Qnt</p>
+                                <p>${item.descricao}</p>
                             </div>
                         </div>
                         <div class="d-flex justify-center">
                             <button class="btn-acao btn-compra-${item.id}">Adicionar ao carrinho</button>
                         </div>
-                    </li>
+            </li>
         `);
 
         const btnCompra = document.querySelector(`.btn-compra-${item.id}`);
         btnCompra.addEventListener("click", () => {
-            carrinhoItemId++; // Incrementa antes de adicionar ao carrinho
             let temItem = carrinho.find((car)=>car.id===item.id);
-            if(temItem){
+            if(temItem){ 
                 item.qnt += 1;
             }else{
                 item.qnt = 1;
@@ -56,6 +55,8 @@ function adicionarItemCarrinho() {
                             <div>
                                 <p>${item.nome}</p>
                                 <p>${item.qnt}</p>
+                                <button id="btn-adicionar-${item.id}">+</button>
+                                <button id="btn-diminuir-${item.id}">-</button>
                             </div>
                         </div>
                         <div class="d-flex justify-center">
@@ -74,5 +75,18 @@ function adicionarItemCarrinho() {
                 carrinhoItemId = 0;
             }
         });
+        const btnAdicionar = document.querySelector(`#btn-adicionar-${item.id}`);
+        btnAdicionar.addEventListener("click",()=>{
+            item.qnt += 1;
+            adicionarItemCarrinho();
+        })
+        const btnDiminuir = document.querySelector(`#btn-diminuir-${item.id}`);
+        btnDiminuir.addEventListener("click",()=>{
+            item.qnt -= 1;
+            if(item.qnt < 1){
+                console.log("REMOVER!")
+            }
+            adicionarItemCarrinho();
+        })
     });
 }

@@ -16,7 +16,7 @@ export const data = [
     {
         id: "2",
         nome: "Camisa banda Burzum",
-        descricao: "100% algodão cor branca",
+        descricao: "100% algodão cor preta",
         preco: "69,90",
         img: "https://http2.mlstatic.com/D_NQ_NP_2X_679934-MLB72315628616_102023-F.webp"
     },
