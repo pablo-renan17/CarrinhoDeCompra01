@@ -6,6 +6,10 @@
     font-family: "Open Sans";
 }
 
+body{
+    
+}
+
 :root{
     --color-black: #1b1b1b;
     --color-grey: #888888;
@@ -142,6 +146,31 @@ main{
     background-color: var(--color-black);
     transform: scale(98%);
     transition: 0.1s;
+}
+
+.modal-wrapper{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal{
+    background-color: aqua;
+    padding: 16px;
+}
+
+.modal-header{
+    background-color: yellow;
+}
+
+.modal-body{
+    background-color: red;
+}
+
+.btn-modal-close{
+    
 }
 
 @media(max-width: 750px){

@@ -35,10 +35,17 @@ function montarListaDeItens() {
                 item.qnt = 1;
                 carrinho.push(item); // Armazena item com id exclusivo
             }
-            console.log(carrinho)
             adicionarItemCarrinho(valorTotal); // Atualiza o carrinho
         });
 
+        
+        
+    });
+    
+        const btnFinalizarCompra = document.querySelector("#btn-finalizar");
+        btnFinalizarCompra.addEventListener("click", ()=>{
+            console.log("BUMBO")
+        });
         
         const btnLimparCarrinho = document.querySelector("#btn-limpar-carrinho");
         btnLimparCarrinho.addEventListener("click", () => {
@@ -46,10 +53,8 @@ function montarListaDeItens() {
             carrinhoUl.innerHTML = "";
             carrinho = [];
             const pTotal = document.querySelector("#p-total");
-            pTotal.innerHTML = `Total: 0`;
-        })
-    });
-    
+            pTotal.innerHTML = `Total: R$0`;
+        });
 }
 montarListaDeItens();
 
@@ -92,14 +97,14 @@ function adicionarItemCarrinho(valorTotal) {
 
         valorTotal += item.preco * item.qnt;
         const pTotal = document.querySelector("#p-total");
-        pTotal.innerHTML = `Total: ${valorTotal.toFixed(2)}`;
+        pTotal.innerHTML = `Total: R$${valorTotal.toFixed(2)}`;
 
         const btnRemover = document.querySelector(`.btn-remove-id-${item.id}`);
         btnRemover.addEventListener("click", () => {
             let carrinhoLi = document.querySelector(`.remove-id-${item.id}`);
             carrinhoLi.remove();
             valorTotal -= item.preco * item.qnt;
-            pTotal.innerHTML = `Total: ${valorTotal}`;
+            pTotal.innerHTML = `Total: R$${valorTotal}`;
             
             item.qnt = 0;
             carrinho = carrinho.filter(car => car.id !== item.id); // Remove o item do carrinho pelo id
@@ -117,7 +122,7 @@ function adicionarItemCarrinho(valorTotal) {
             if(item.qnt === 1) {
                 valorTotal -= (item.preco * item.qnt);
                 item.qnt -= 1;
-                pTotal.innerHTML = `Total: ${valorTotal}`;
+                pTotal.innerHTML = `Total: R$${valorTotal}`;
 
                 let carrinhoLi = document.querySelector(`.remove-id-${item.id}`);
                 carrinhoLi.remove();
