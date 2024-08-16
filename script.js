@@ -35,6 +35,8 @@ function montarListaDeItens() {
                 item.qnt = 1;
                 carrinho.push(item); // Armazena item com id exclusivo
             }
+            const btnFinalizar = document.querySelector("#btn-finalizar");
+            btnFinalizar.disabled = false;
             adicionarItemCarrinho(valorTotal); // Atualiza o carrinho
         });
 
@@ -164,6 +166,7 @@ function adicionarItemCarrinho(valorTotal) {
 
         const btnAdicionar = document.querySelector(`#btn-adicionar-${item.id}`);
         btnAdicionar.addEventListener("click", () => {
+            
             item.qnt += 1;
             adicionarItemCarrinho(valorTotal);
         });
@@ -181,8 +184,12 @@ function adicionarItemCarrinho(valorTotal) {
             } else {
                 item.qnt -= 1;
             }
+            if(carrinho.length < 1){
+                console.log("entrou disabled")
+                const btnFinalizar = document.querySelector("#btn-finalizar");
+                btnFinalizar.disabled = true;
+            }
             adicionarItemCarrinho(valorTotal);
         })
     });
-   
 }
