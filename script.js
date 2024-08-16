@@ -38,23 +38,73 @@ function montarListaDeItens() {
             adicionarItemCarrinho(valorTotal); // Atualiza o carrinho
         });
 
-        
-        
+
+
     });
+
     
-        const btnFinalizarCompra = document.querySelector("#btn-finalizar");
-        btnFinalizarCompra.addEventListener("click", ()=>{
-            console.log("BUMBO")
-        });
-        
-        const btnLimparCarrinho = document.querySelector("#btn-limpar-carrinho");
-        btnLimparCarrinho.addEventListener("click", () => {
-            const carrinhoUl = document.querySelector(".carrinho-ul");
-            carrinhoUl.innerHTML = "";
-            carrinho = [];
-            const pTotal = document.querySelector("#p-total");
-            pTotal.innerHTML = `Total: R$0`;
-        });
+
+    const btnLimparCarrinho = document.querySelector("#btn-limpar-carrinho");
+    btnLimparCarrinho.addEventListener("click", () => {
+        const carrinhoUl = document.querySelector(".carrinho-ul");
+        carrinhoUl.innerHTML = "";
+        carrinho = [];
+        const pTotal = document.querySelector("#p-total");
+        pTotal.innerHTML = `Total: R$0`;
+    });
+
+    const btnFinalizar = document.querySelector("#btn-finalizar");
+    btnFinalizar.addEventListener("click", ()=>{
+        modal();
+    });
+
+    // const btnModalRemover = document.querySelector(".btn-modal-close");
+    // btnModalRemover.addEventListener("click", ()=>{
+    //     console.log("coisa")
+    // })
+
+   
+    // modal()
+
+
+}
+function modal(){
+    let valorTotal = 0;
+    carrinho.forEach((item)=>{
+        valorTotal += item.preco * item.qnt;
+    });
+    console.log(valorTotal, "total")
+    // const btnFinalizar = document.querySelector("#btn-finalizar");
+    // btnFinalizar.addEventListener("click", (event) => {
+        console.log(event)
+        const body = document.body;
+        body.insertAdjacentHTML("beforeend", `
+    <div class="modal-wrapper d-flex justify-center align-center">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>✔Concluir</h2>
+                <button class="btn-modal-close">X</button>
+            </div>
+            <div class="modal-body d-flex">
+                <p>Sua compra esta concluida</p>
+                <p>Total: R$${valorTotal.toFixed(2)} + R$1200(imposto)</p>
+                <button id="btn-modal-comprar" class="btn-carrinho">Comprar</button>
+            </div>
+        </div>
+    </div>`)
+
+        const btnModalClose = document.querySelector(".btn-modal-close");
+        btnModalClose.addEventListener("click", () => {
+            const modal = document.querySelector(".modal-wrapper");
+            modal.remove();
+        })
+
+        const btnModalComprar = document.querySelector("#btn-modal-comprar");
+        btnModalComprar.addEventListener("click", () => {
+            const modal = document.querySelector(".modal-wrapper");
+            modal.remove();
+        })
+    // })
 }
 montarListaDeItens();
 
@@ -96,6 +146,7 @@ function adicionarItemCarrinho(valorTotal) {
         `);
 
         valorTotal += item.preco * item.qnt;
+       
         const pTotal = document.querySelector("#p-total");
         pTotal.innerHTML = `Total: R$${valorTotal.toFixed(2)}`;
 
@@ -105,7 +156,7 @@ function adicionarItemCarrinho(valorTotal) {
             carrinhoLi.remove();
             valorTotal -= item.preco * item.qnt;
             pTotal.innerHTML = `Total: R$${valorTotal}`;
-            
+
             item.qnt = 0;
             carrinho = carrinho.filter(car => car.id !== item.id); // Remove o item do carrinho pelo id
             adicionarItemCarrinho(valorTotal);
@@ -119,7 +170,7 @@ function adicionarItemCarrinho(valorTotal) {
 
         const btnDiminuir = document.querySelector(`#btn-diminuir-${item.id}`);
         btnDiminuir.addEventListener("click", () => {
-            if(item.qnt === 1) {
+            if (item.qnt === 1) {
                 valorTotal -= (item.preco * item.qnt);
                 item.qnt -= 1;
                 pTotal.innerHTML = `Total: R$${valorTotal}`;
@@ -127,10 +178,11 @@ function adicionarItemCarrinho(valorTotal) {
                 let carrinhoLi = document.querySelector(`.remove-id-${item.id}`);
                 carrinhoLi.remove();
                 carrinho = carrinho.filter(car => car.id !== item.id); // Remove o item do carrinho pelo id
-            }else{
+            } else {
                 item.qnt -= 1;
             }
             adicionarItemCarrinho(valorTotal);
         })
     });
+   
 }

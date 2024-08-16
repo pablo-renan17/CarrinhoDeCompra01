@@ -138,6 +138,7 @@ main{
 }
 
 .btn-carrinho:hover{
+    cursor: pointer;
     background-color: var(--color-grey);
     transition: 0.2s;
 }
@@ -158,19 +159,32 @@ main{
 
 .modal{
     background-color: aqua;
-    padding: 16px;
+    border-radius: 16px;
+    overflow: hidden;
 }
 
 .modal-header{
-    background-color: yellow;
+    padding: 16px;
+    background-color: rgb(0, 238, 0);
+    position: relative;
 }
 
 .modal-body{
-    background-color: red;
+    padding: 16px;
+    background-color: rgb(224, 224, 224);
+    flex-direction: column;
 }
 
 .btn-modal-close{
-    
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.btn-modal-close:hover{
+    cursor: pointer;
 }
 
 @media(max-width: 750px){
