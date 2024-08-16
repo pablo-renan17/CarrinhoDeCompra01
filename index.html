@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de compras</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <header class="d-flex justify-center align-center">
         <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-list icon-menu" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
+                class="bi bi-list icon-menu" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
             </svg>
         </div>
         SHOPEE
     </header>
     <header class="d-flex justify-center align-center">
         <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-list icon-menu" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
+                class="bi bi-list icon-menu" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
             </svg>
         </div>
         SHOPEE
@@ -28,7 +34,7 @@
     <main class="d-flex justify-center align-center">
         <div class="compra">
             <div class="compra-header">
-                Lista de Itens 
+                Lista de Itens
             </div>
             <div class="compra-body">
                 <ul class="compra-ul">
@@ -46,11 +52,21 @@
                 </ul>
             </div>
             <footer class="carrinho-footer">
-                <p>Total: </p>
+                <div>
+
+                    <button id="btn-limpar-carrinho" class="btn-carrinho">Limpar Carrinho</button>
+
+                    <button class="btn-carrinho">Finalizar</button>
+
+                </div>
+                <div>
+                    <p id="p-total">Total: </p>
+                </div>
             </footer>
         </div>
     </main>
 
     <script type="module" src="script.js"></script>
 </body>
+
 </html>

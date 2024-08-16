@@ -93,6 +93,11 @@ main{
     padding: 16px;
     font-weight: bold;
     border-top: 2px solid var(--color-black);
+    display: flex;
+}
+
+.carrinho-footer div{
+    padding: 4px;
 }
 
 .li-compra{
@@ -109,12 +114,31 @@ main{
     font-size: 2vh;
 }
 
+.btn-carrinho{
+    border: 2px solid var(--color-black);
+    border-radius: 4px;
+    font-size: 2vh;
+    padding: 2px;
+    margin: 2px;
+}
+
 .btn-acao:hover{
     background-color: var(--color-grey);
     transition: 0.2s;
 }
 
-.btn-acao:active{
+.btn-carrinho:active{
+    background-color: var(--color-black);
+    transform: scale(98%);
+    transition: 0.1s;
+}
+
+.btn-carrinho:hover{
+    background-color: var(--color-grey);
+    transition: 0.2s;
+}
+
+.btn-carrinho:active{
     background-color: var(--color-black);
     transform: scale(98%);
     transition: 0.1s;
