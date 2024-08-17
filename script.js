@@ -44,7 +44,7 @@ function montarListaDeItens() {
 
     });
 
-    
+
 
     const btnLimparCarrinho = document.querySelector("#btn-limpar-carrinho");
     btnLimparCarrinho.addEventListener("click", () => {
@@ -56,7 +56,7 @@ function montarListaDeItens() {
     });
 
     const btnFinalizar = document.querySelector("#btn-finalizar");
-    btnFinalizar.addEventListener("click", ()=>{
+    btnFinalizar.addEventListener("click", () => {
         modal();
     });
 
@@ -65,22 +65,22 @@ function montarListaDeItens() {
     //     console.log("coisa")
     // })
 
-   
+
     // modal()
 
 
 }
-function modal(){
+function modal() {
     let valorTotal = 0;
-    carrinho.forEach((item)=>{
+    carrinho.forEach((item) => {
         valorTotal += item.preco * item.qnt;
     });
     console.log(valorTotal, "total")
     // const btnFinalizar = document.querySelector("#btn-finalizar");
     // btnFinalizar.addEventListener("click", (event) => {
-        console.log(event)
-        const body = document.body;
-        body.insertAdjacentHTML("beforeend", `
+    console.log(event)
+    const body = document.body;
+    body.insertAdjacentHTML("beforeend", `
     <div class="modal-wrapper d-flex justify-center align-center">
         <div class="modal">
             <div class="modal-header">
@@ -95,17 +95,17 @@ function modal(){
         </div>
     </div>`)
 
-        const btnModalClose = document.querySelector(".btn-modal-close");
-        btnModalClose.addEventListener("click", () => {
-            const modal = document.querySelector(".modal-wrapper");
-            modal.remove();
-        })
+    const btnModalClose = document.querySelector(".btn-modal-close");
+    btnModalClose.addEventListener("click", () => {
+        const modal = document.querySelector(".modal-wrapper");
+        modal.remove();
+    })
 
-        const btnModalComprar = document.querySelector("#btn-modal-comprar");
-        btnModalComprar.addEventListener("click", () => {
-            const modal = document.querySelector(".modal-wrapper");
-            modal.remove();
-        })
+    const btnModalComprar = document.querySelector("#btn-modal-comprar");
+    btnModalComprar.addEventListener("click", () => {
+        const modal = document.querySelector(".modal-wrapper");
+        modal.remove();
+    })
     // })
 }
 montarListaDeItens();
@@ -148,7 +148,7 @@ function adicionarItemCarrinho(valorTotal) {
         `);
 
         valorTotal += item.preco * item.qnt;
-       
+
         const pTotal = document.querySelector("#p-total");
         pTotal.innerHTML = `Total: R$${valorTotal.toFixed(2)}`;
 
@@ -166,7 +166,7 @@ function adicionarItemCarrinho(valorTotal) {
 
         const btnAdicionar = document.querySelector(`#btn-adicionar-${item.id}`);
         btnAdicionar.addEventListener("click", () => {
-            
+
             item.qnt += 1;
             adicionarItemCarrinho(valorTotal);
         });
@@ -184,7 +184,7 @@ function adicionarItemCarrinho(valorTotal) {
             } else {
                 item.qnt -= 1;
             }
-            if(carrinho.length < 1){
+            if (carrinho.length < 1) {
                 console.log("entrou disabled")
                 const btnFinalizar = document.querySelector("#btn-finalizar");
                 btnFinalizar.disabled = true;
